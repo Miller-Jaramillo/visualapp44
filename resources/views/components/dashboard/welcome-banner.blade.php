@@ -1,4 +1,4 @@
-<div class="relative bg-indigo-200 dark:bg-indigo-800 p-4 sm:p-6 rounded-xl overflow-hidden mb-8">
+<div  id="randomColorDiv" class="relative  p-4 sm:p-6 rounded-xl overflow-hidden mb-8">
 
     <!-- Background illustration -->
     <div class="absolute right-0 top-0 -mt-4 mr-16 pointer-events-none hidden xl:block" aria-hidden="true">
@@ -45,7 +45,29 @@
     <!-- Content -->
     <div class="relative">
         <h1 class="text-2xl md:text-3xl text-slate-800 dark:text-slate-100 font-bold mb-1">Hola, {{ Auth::user()->name }} 👋</h1>
-        <p class="dark:text-indigo-200">Estas son las estadisticas de reportes cargadas por los Administradores:</p>
+        <p class="dark:text-indigo-200">
+            ¡Explora ahora para conocer los datos más recientes sobre seguridad y accidentes! 📊🚀 #SeguridadPrimero #EstadisticasImpresionantes
+        </p>
     </div>
 
 </div>
+
+
+
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+      const randomColorDiv = document.getElementById('randomColorDiv');
+      const randomColor = getRandomColor();
+
+      randomColorDiv.style.backgroundColor = randomColor;
+
+      function getRandomColor() {
+        const letters = '0123456789ABCDEF';
+        let color = '#';
+        for (let i = 0; i < 6; i++) {
+          color += letters[Math.floor(Math.random() * 16)];
+        }
+        return color;
+      }
+    });
+  </script>

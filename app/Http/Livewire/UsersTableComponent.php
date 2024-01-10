@@ -36,14 +36,13 @@ class UsersTableComponent extends Component
         public $userInfo;
         public $message = '';
         public $selectedStyle = '';
-        public $participate;
         public $showPropuestas;
         public $userToShowPropuestas;
         public $openEstadisticas;
         public  $totalUsers;
         public $adminCount;
-        public $espectadorCount;
-        public $participanteCount;
+        public $userCount;
+
 
     public function render()
     {
@@ -56,24 +55,12 @@ class UsersTableComponent extends Component
             });
         }
 
-        $userRoleId = Auth::user()->role_id;
 
-        if ($userRoleId === 1) {
-            // Si el usuario tiene role_id 1 (administrador), muestra todos los usuarios
-        } elseif ($userRoleId === 2) {
-            // Si el usuario tiene role_id 2 (espectador), excluye los usuarios con role_id 1 (administrador)
-            $users->where('role_id', '!=', 1);
-        } elseif ($userRoleId === 3) {
-            // Si el usuario tiene role_id 3 (participante), excluye los usuarios con role_id 1 (administrador)
-            $users->where('role_id', '!=', 1);
-        }
 
         if ($this->selectedRole === 'administradores') {
-            $users->where('role_id', 1);
-        } elseif ($this->selectedRole === 'espectadores') {
-            $users->where('role_id', 2);
-        } elseif ($this->selectedRole === 'participantes') {
-            $users->where('role_id', 3);
+            $users->where('role_name', 'Administrador');
+        } elseif ($this->selectedRole === 'usuarios') {
+            $users->where('role_name', 'Usuario');
         }
 
         $users->orderByRaw('id <> ?', [Auth::id()]); // cmt: Ubica de primero en la lista al user:Auth
@@ -225,41 +212,23 @@ class UsersTableComponent extends Component
         $this->openEstadisticas = false;
     }
 
-    public function redirectToPropuestas()
-    {
-        // Redirige a la vista "Propuestas" con el parámetro para mostrar el formulario
 
-        return redirect()->route('propuesta-nueva');
-    }
-
-    public function verPropuestas($userId)
-    {
-        // Redirigir a la ruta show-propuestas con el user_id
-        return Redirect::route('show-propuestas', ['user_id' => $userId]);
-    }
-
-    public function enviarPropuesta()
-    {
-
-        return Redirect::route('registrar-propuesta');
-
-    }
 
     public function estadisticas()
     {
 
         $totalUsers = User::count();
-        $adminCount = User::where('role_id', 1)->count();
-        $espectadorCount = User::where('role_id', 2)->count();
-        $participanteCount = User::where('role_id', 3)->count();
+        $adminCount = User::where('role_name', 'Administrador')->count();
+        $userCount = User::where('role_name', 'Usuario')->count();
+
 
         // Puedes utilizar estas variables para mostrar las estadísticas o realizar otras operaciones
 
         // Por ejemplo, puedes asignar estas variables a propiedades de tu componente para mostrarlas en la vista
         $this->totalUsers = $totalUsers;
         $this->adminCount = $adminCount;
-        $this->espectadorCount = $espectadorCount;
-        $this->participanteCount = $participanteCount;
+        $this->userCount = $userCount;
+
 
         $this->openEstadisticas = true;
 

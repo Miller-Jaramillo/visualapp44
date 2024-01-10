@@ -1,11 +1,14 @@
 <?php
 
 use App\Http\Controllers\CustomRegisteredUserController;
+use App\Http\Controllers\DashboardCard04;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\DataFeedController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\RegisterUserController;
 use App\Http\Livewire\Admin\RegistrosComponent;
+use App\Http\Livewire\Admin\RegistrosTableComponent;
+use App\Http\Livewire\MapasComponent;
 use App\Http\Livewire\UsersTableComponent;
 
 /*
@@ -43,7 +46,17 @@ Route::middleware(['auth:sanctum', 'verified'])->group(function () {
 
 
     Route::get('/users', UsersTableComponent::class)->name('users');
-    Route::get('/registros', RegistrosComponent::class)->name('registros');
+    Route::get('/subir-registro', RegistrosComponent::class)->name('subir-registro');
+
+    Route::get('/registros', RegistrosTableComponent::class)->name('registros');
+
+    Route::get('/mapas', MapasComponent::class)->name('mapas');
+
+
+    // routes/web.php
+
+
+
 
 
 

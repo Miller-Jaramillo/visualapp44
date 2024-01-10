@@ -42,7 +42,7 @@ class RegistrosComponent extends Component
             ->count();
     }
 
-    
+
 
     public function render()
     {

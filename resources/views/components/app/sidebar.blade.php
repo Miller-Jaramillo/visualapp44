@@ -73,13 +73,13 @@
                                         <span class="text-sm font-medium lg:opacity-0 lg:sidebar-expanded:opacity-100 2xl:opacity-100 duration-200">Inicio</span>
                                     </a>
                                 </li>
-                                <li class="mb-1 last:mb-0">
+                                {{-- <li class="mb-1 last:mb-0">
                                     <a class="block dark:text-slate-400 text-slate-500 dark:hover:text-indigo-400 hover:text-indigo-600 transition duration-150 truncate @if(Route::is('analytics')){{ '!text-indigo-500' }}@endif" href="#0">
                                         <span class="text-sm font-medium lg:opacity-0 lg:sidebar-expanded:opacity-100 2xl:opacity-100 duration-200">Graficas</span>
                                     </a>
-                                </li>
+                                </li> --}}
                                 <li class="mb-1 last:mb-0">
-                                    <a class="block dark:text-slate-400 text-slate-500 dark:hover:text-indigo-400 hover:text-indigo-600 transition duration-150 truncate @if(Route::is('fintech')){{ '!text-indigo-500' }}@endif" href="#0">
+                                    <a class="block dark:text-slate-400 text-slate-500 dark:hover:text-indigo-400 hover:text-indigo-600 transition duration-150 truncate @if(Route::is('mapas')){{ '!text-indigo-500' }}@endif" href="{{ route('mapas') }}">
                                         <span class="text-sm font-medium lg:opacity-0 lg:sidebar-expanded:opacity-100 2xl:opacity-100 duration-200">Mapas</span>
                                     </a>
                                 </li>
@@ -112,6 +112,11 @@
                     <div class="lg:hidden lg:sidebar-expanded:block 2xl:block">
                         <ul class="pl-9 mt-1 @if(!in_array(Request::segment(1), ['dashboard'])){{ 'hidden' }}@endif" :class="open ? '!block' : 'hidden'">
                             <li class="mb-1 last:mb-0">
+                                <a class="block dark:text-slate-400 text-slate-500 dark:hover:text-indigo-400 hover:text-indigo-600 transition duration-150 truncate @if(Route::is('subir-registro')){{ '!text-indigo-500' }}@endif" href="{{ route('subir-registro') }}">
+                                    <span class="text-sm font-medium lg:opacity-0 lg:sidebar-expanded:opacity-100 2xl:opacity-100 duration-200">Subir registro</span>
+                                </a>
+                            </li>
+                            <li class="mb-1 last:mb-0">
                                 <a class="block dark:text-slate-400 text-slate-500 dark:hover:text-indigo-400 hover:text-indigo-600 transition duration-150 truncate @if(Route::is('registros')){{ '!text-indigo-500' }}@endif" href="{{ route('registros') }}">
                                     <span class="text-sm font-medium lg:opacity-0 lg:sidebar-expanded:opacity-100 2xl:opacity-100 duration-200">Registros</span>
                                 </a>
@@ -140,7 +145,7 @@
                                         <path class="fill-current @if(in_array(Request::segment(1), ['settings'])){{ 'text-indigo-500' }}@else{{ 'text-slate-600' }}@endif" d="M5.7 10.714c.195.4.298.84.3 1.286a3 3 0 11-3-3c.446.002.885.105 1.286.3l7.007-7.007 1.414 1.414L5.7 10.714z" />
                                         <path class="fill-current @if(in_array(Request::segment(1), ['settings'])){{ 'text-indigo-300' }}@else{{ 'text-slate-400' }}@endif" d="M19.707 9.292a3.012 3.012 0 00-1.415 1.415L13.286 5.7c-.4.195-.84.298-1.286.3a3 3 0 113-3 2.969 2.969 0 01-.3 1.286l5.007 5.006z" />
                                     </svg>
-                                    <span class="text-sm font-medium ml-3 lg:opacity-0 lg:sidebar-expanded:opacity-100 2xl:opacity-100 duration-200">Settings</span>
+                                    <span class="text-sm font-medium ml-3 lg:opacity-0 lg:sidebar-expanded:opacity-100 2xl:opacity-100 duration-200">Ajustes</span>
                                 </div>
                                 <!-- Icon -->
                                 <div class="flex shrink-0 ml-2 lg:opacity-0 lg:sidebar-expanded:opacity-100 2xl:opacity-100 duration-200">
@@ -154,7 +159,7 @@
                             <ul class="pl-9 mt-1 @if(!in_array(Request::segment(1), ['settings'])){{ 'hidden' }}@endif" :class="open ? '!block' : 'hidden'">
                                 <li class="mb-1 last:mb-0">
                                     <a class="block  dark:text-slate-400 text-slate-500 dark:hover:text-indigo-400 hover:text-indigo-600 transition duration-150 truncate @if(Route::is('account')){{ '!text-indigo-500' }}@endif" href="#0">
-                                        <span class="text-sm font-medium lg:opacity-0 lg:sidebar-expanded:opacity-100 2xl:opacity-100 duration-200">My Account</span>
+                                        <span class="text-sm font-medium lg:opacity-0 lg:sidebar-expanded:opacity-100 2xl:opacity-100 duration-200">Mi cuenta</span>
                                     </a>
                                 </li>
                             </ul>
@@ -167,7 +172,7 @@
             <div>
                 <h3 class="text-xs uppercase text-slate-500 font-semibold pl-3">
                     <span class="hidden lg:block lg:sidebar-expanded:hidden 2xl:hidden text-center w-6" aria-hidden="true">•••</span>
-                    <span class="lg:hidden lg:sidebar-expanded:block 2xl:block">More</span>
+                    <span class="lg:hidden lg:sidebar-expanded:block 2xl:block">Mas</span>
                 </h3>
                 <ul class="mt-3">
                     <!-- Authentication -->
@@ -179,7 +184,7 @@
                                         <path class="fill-current text-slate-600" d="M8.07 16H10V8H8.07a8 8 0 110 8z" />
                                         <path class="fill-current text-slate-400" d="M15 12L8 6v5H0v2h8v5z" />
                                     </svg>
-                                    <span class="text-sm font-medium ml-3 lg:opacity-0 lg:sidebar-expanded:opacity-100 2xl:opacity-100 duration-200">Authentication</span>
+                                    <span class="text-sm font-medium ml-3 lg:opacity-0 lg:sidebar-expanded:opacity-100 2xl:opacity-100 duration-200">Autenticaion</span>
                                 </div>
                                 <!-- Icon -->
                                 <div class="flex shrink-0 ml-2 lg:opacity-0 lg:sidebar-expanded:opacity-100 2xl:opacity-100 duration-200">
@@ -196,25 +201,17 @@
                                         @csrf
 
                                         <a class="block text- dark:text-slate-400 text-slate-500 dark:hover:text-indigo-400 hover:text-indigo-600 transition duration-150 truncate" href="{{ route('logout') }}" @click.prevent="$root.submit();">
-                                            <span class="text-sm font-medium lg:opacity-0 lg:sidebar-expanded:opacity-100 2xl:opacity-100 duration-200">Sign In</span>
+                                            <span class="text-sm font-medium lg:opacity-0 lg:sidebar-expanded:opacity-100 2xl:opacity-100 duration-200">Cerrar sesion</span>
                                         </a>
                                     </form>
                                 </li>
+
                                 <li class="mb-1 last:mb-0">
                                     <form method="POST" action="{{ route('logout') }}" x-data>
                                         @csrf
 
                                         <a class="block  dark:text-slate-400 text-slate-500 dark:hover:text-indigo-400 hover:text-indigo-600 transition duration-150 truncate" href="{{ route('logout') }}" @click.prevent="$root.submit();">
-                                            <span class="text-sm font-medium lg:opacity-0 lg:sidebar-expanded:opacity-100 2xl:opacity-100 duration-200">Sign Up</span>
-                                        </a>
-                                    </form>
-                                </li>
-                                <li class="mb-1 last:mb-0">
-                                    <form method="POST" action="{{ route('logout') }}" x-data>
-                                        @csrf
-
-                                        <a class="block  dark:text-slate-400 text-slate-500 dark:hover:text-indigo-400 hover:text-indigo-600 transition duration-150 truncate" href="{{ route('logout') }}" @click.prevent="$root.submit();">
-                                            <span class="text-sm font-medium lg:opacity-0 lg:sidebar-expanded:opacity-100 2xl:opacity-100 duration-200">Reset Password</span>
+                                            <span class="text-sm font-medium lg:opacity-0 lg:sidebar-expanded:opacity-100 2xl:opacity-100 duration-200">Cambiar contraseña</span>
                                         </a>
                                     </form>
                                 </li>

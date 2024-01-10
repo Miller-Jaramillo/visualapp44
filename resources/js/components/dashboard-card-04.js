@@ -39,7 +39,7 @@ const dashboardCard04 = () => {
   const tooltipBorderColor = {
     light: '#e2e8f0',
     dark: '#475569'
-  };    
+  };
 
   fetch('/json-data-feed?datatype=4')
     .then(a => {
@@ -102,7 +102,7 @@ const dashboardCard04 = () => {
               },
               grid: {
                 color: darkMode ? gridColor.dark : gridColor.light,
-              },              
+              },
             },
             x: {
               type: 'time',
@@ -115,7 +115,7 @@ const dashboardCard04 = () => {
               },
               border: {
                 display: false,
-              },              
+              },
               grid: {
                 display: false,
               },
@@ -139,7 +139,7 @@ const dashboardCard04 = () => {
               },
               bodyColor: darkMode ? tooltipBodyColor.dark : tooltipBodyColor.light,
               backgroundColor: darkMode ? tooltipBgColor.dark : tooltipBgColor.light,
-              borderColor: darkMode ? tooltipBorderColor.dark : tooltipBorderColor.light,    
+              borderColor: darkMode ? tooltipBorderColor.dark : tooltipBorderColor.light,
             },
           },
           interaction: {
@@ -215,7 +215,7 @@ const dashboardCard04 = () => {
           },
         }],
       });
-      
+
       document.addEventListener('darkMode', (e) => {
         const { mode } = e.detail;
         if (mode === 'on') {
@@ -231,10 +231,10 @@ const dashboardCard04 = () => {
           chart.options.scales.y.grid.color = gridColor.light;
           chart.options.plugins.tooltip.bodyColor = tooltipBodyColor.light;
           chart.options.plugins.tooltip.backgroundColor = tooltipBgColor.light;
-          chart.options.plugins.tooltip.borderColor = tooltipBorderColor.light;  
+          chart.options.plugins.tooltip.borderColor = tooltipBorderColor.light;
         }
         chart.update('none');
-      });      
+      });
     });
 };
 

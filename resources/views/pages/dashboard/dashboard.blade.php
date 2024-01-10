@@ -5,7 +5,7 @@
         <x-dashboard.welcome-banner />
 
         <!-- Dashboard actions -->
-        <div class="sm:flex sm:justify-between sm:items-center mb-8">
+        <div >
 
             <!-- Left: Avatars -->
             {{-- <x-dashboard.dashboard-avatars /> --}}
@@ -31,38 +31,58 @@
 
         </div>
 
+
+
+
+
+
+
+
         <!-- Cards -->
         <div class="grid grid-cols-12 gap-6">
 
+            @livewire('charts.barras-apiladas-tipo-victima-genero')
+
+            @livewire('charts.grafico-pastel-accidentes')
+            @livewire('charts.grafico-pastel-clases-accidentes')
+
+            @livewire('charts.histograma-accidentes')
+            @livewire('charts.diagrama-dispersión')
+
+            @livewire('charts.grafico-burbujas-accidentes')
+            @livewire('charts.grafico-barras-apiladas')
+
+            @livewire('charts.dashboard-card04')
+
+            <div class="col-span-12 shadow-lg rounded-xl border border-slate-200 dark:border-slate-700 ">
+            @livewire('mapas-component')
+
+            </div>
+
+
+
+
             <!-- Line chart (Acme Plus) -->
-            <x-dashboard.dashboard-card-01 :dataFeed="$dataFeed" />
+            {{-- <x-dashboard.dashboard-card-01 :dataFeed="$dataFeed" /> --}}
 
             <!-- Line chart (Acme Advanced) -->
-            <x-dashboard.dashboard-card-02 :dataFeed="$dataFeed" />
+            {{-- <x-dashboard.dashboard-card-02 :dataFeed="$dataFeed" /> --}}
 
             <!-- Line chart (Acme Professional) -->
-            <x-dashboard.dashboard-card-03 :dataFeed="$dataFeed" />
-
-            <!-- Bar chart (Direct vs Indirect) -->
-            <x-dashboard.dashboard-card-04 />
-
-            <!-- Line chart (Real Time Value) -->
-            <x-dashboard.dashboard-card-05 />
-
-            <!-- Doughnut chart (Top Countries) -->
-            <x-dashboard.dashboard-card-06 />
+            {{-- <x-dashboard.dashboard-card-03 :dataFeed="$dataFeed" /> --}}
 
             <!-- Table (Top Channels) -->
-            <x-dashboard.dashboard-card-07 />
+            {{-- <x-dashboard.dashboard-card-07 /> --}}
+
 
             <!-- Line chart (Sales Over Time)  -->
-            <x-dashboard.dashboard-card-08 />
+            {{-- <x-dashboard.dashboard-card-08 /> --}}
 
             <!-- Stacked bar chart (Sales VS Refunds) -->
-            <x-dashboard.dashboard-card-09 />
+            {{-- <x-dashboard.dashboard-card-09 /> --}}
 
             <!-- Card (Customers)  -->
-            <x-dashboard.dashboard-card-10 />
+            {{-- <x-dashboard.dashboard-card-10 />
 
             <!-- Card (Reasons for Refunds)   -->
             <x-dashboard.dashboard-card-11 />
@@ -71,10 +91,12 @@
             <x-dashboard.dashboard-card-12 />
 
             <!-- Card (Income/Expenses) -->
-            <x-dashboard.dashboard-card-13 />
-
+            <x-dashboard.dashboard-card-13 /> --}}
 
         </div>
+
+
+
 
     </div>
 </x-app-layout>
