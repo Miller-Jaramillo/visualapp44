@@ -87,6 +87,7 @@
                         </div>
                     </li>
 
+                    @role('admin')
                 <!-- Tablas -->
                 <li class="px-3 py-2 rounded-sm mb-0.5 last:mb-0 @if(in_array(Request::segment(1), ['users', 'registros'])){{ 'bg-slate-100 dark:bg-slate-950' }}@endif" x-data="{ open: {{ in_array(Request::segment(1), ['users', 'registros']) ? 1 : 0 }} }">
                     <a class="block dark:text-slate-200 text-slate-800 hover:text-indigo-500 dark:hover:text-indigo-500 truncate transition duration-150 @if(in_array(Request::segment(1), ['users'])){{ 'hover:text-slate-200' }}@endif" href="#0" @click.prevent="sidebarExpanded ? open = !open : sidebarExpanded = true">
@@ -130,7 +131,7 @@
                     </div>
                 </li>
 
-
+                @endrole
 
 
 
