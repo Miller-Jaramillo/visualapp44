@@ -33,7 +33,7 @@ class MapasComponent extends Component
     private function geocodificarDireccion($direccion, $totalAccidentes)
     {
         $client = new Client();
-        $api_key = 'AIzaSyBvrQwMO1wOGDGLIqMhE3_UYsWtRsQba34'; // Reemplaza con tu API Key de Google Maps Geocoding
+        $api_key = 'AIzaSyBvrQwMO1wOGDGLIqMhE3_UYsWtRsQba34';
         $endpoint = 'https://maps.googleapis.com/maps/api/geocode/json';
 
         $response = $client->get($endpoint, [
