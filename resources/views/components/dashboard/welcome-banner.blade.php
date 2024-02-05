@@ -54,7 +54,7 @@
 
 
 
-<script>
+{{-- <script>
     document.addEventListener('DOMContentLoaded', function () {
       const randomColorDiv = document.getElementById('randomColorDiv');
       const randomColor = getRandomColor();
@@ -70,4 +70,4 @@
         return color;
       }
     });
-  </script>
+  </script> --}}
